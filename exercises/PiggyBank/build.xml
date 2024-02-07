@@ -1,0 +1,35 @@
+<?xml version="1.0" ?>
+<project name="JarBuild" basedir="../../../bootcamp/live-codings/build-process" default="jarfile">
+    <!--Creates target init-->
+    <target name="init" description="Initialize properties">
+        <property name="project.name" value="PiggyBank"/>
+        <property name="src.dir" value="src"/>
+        <property name="build.dir" value="build"/>
+        <property name="main.class" value="io.codeforall.bootcamp.filhosdamain.HelloWorld"/>
+        <property name="classes.dir" value="~/Desktop/myrepo/exercises/PiggyBank/build/classes"/>
+    </target>
+
+    <!--Creates target prepare-->
+    <target name="prepare" description="Creates the build and classes directories" depends="init">
+        <mkdir dir="~/Desktop/myrepo/exercises/PiggyBank/build/classes"/>
+    </target>
+    <!-- Creates target Compile-->
+    <target name="compile" description="Compiles the code" depends="prepare">
+        <javac srcdir="${src.dir}" destdir="~/Desktop/myrepo/exercises/PiggyBank/build/classes"/>
+    </target>
+
+    <!-- Creates target jarfile-->
+    <target name="jarfile" description="Creates the JAR archive" depends="compile">
+        <jar destfile="~/Desktop/myrepo/exercises/PiggyBank/build/PiggyBank.jar" basedir="~/Desktop/myrepo/exercises/PiggyBank/build/classes">
+            <manifest>
+                <attribute name="Main-Class" value="${main.class}"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Creates target clean-->
+    <target name="clean" description="Clean up" depends="init">
+        <delete dir="~/Desktop/myrepo/exercises/PiggyBank/build/"/>
+    </target>
+</project>
+
