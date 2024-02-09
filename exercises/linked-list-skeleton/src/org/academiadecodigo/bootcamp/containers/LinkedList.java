@@ -39,18 +39,17 @@ public class LinkedList {
      */
     public Object get(int index) {
 
-        Node iterator = head.getNext();
+        Node iterator = head;
 
-        if(iterator == null){
+        if (iterator == null || size() <= index) {
             return null;
         } else {
-            for (int i = 0; i <= index; i++) {;
+            for (int i = 0; i <= index; i++) {
                 if (i != index) {
                     iterator = iterator.getNext();
                 }
             }
-            return iterator.getData();
-
+            return iterator.getNext().getData();
         }
     }
 
@@ -83,8 +82,20 @@ public class LinkedList {
      */
     public boolean remove(Object data) {
 
-        throw new UnsupportedOperationException();
+        Node previous = head;
+        Node iterator = head.getNext();
 
+        while (iterator != null){
+
+            if (iterator.getData().equals(data)){
+                previous.setNext((iterator.getNext()));
+                length--;
+                return true;
+            }
+            previous = iterator;
+            iterator = iterator.getNext();
+        }
+return false;
     }
 
     private class Node {

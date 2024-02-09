@@ -125,13 +125,12 @@ public class LinkedListTest {
         Object data1 = new Integer(1);
         Object data2 = new Integer(2);
         Object data3 = new Integer(3);
-        System.out.println("before if");
+
         // Tests with empty list
         if (list.get(0) != null) {
-            System.out.println("here first if");
             return false;
         }
-        System.out.println("here!");
+
         if (list.get(1) != null) {
             return false;
         }
@@ -159,11 +158,9 @@ public class LinkedListTest {
         if (!data1.equals(list.get(0))) {
             return false;
         }
-
         if (!data2.equals(list.get(1))) {
             return false;
         }
-
         if (list.get(2) != null) {
             return false;
         }
