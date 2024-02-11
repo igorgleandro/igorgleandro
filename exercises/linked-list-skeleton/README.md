@@ -1,1 +1,0 @@
-Simple linked list implementation
