@@ -77,12 +77,9 @@ public class Player {
                         paint.setColor(Color.BLACK);
                         paint.draw();
                     }
-
-
                 }
             }
         }
-
     }
 }
 
