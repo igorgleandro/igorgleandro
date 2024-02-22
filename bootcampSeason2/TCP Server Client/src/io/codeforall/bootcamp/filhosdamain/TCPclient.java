@@ -19,7 +19,7 @@ public class TCPclient {
 
         // STEP2: Open a client socket, blocking while connecting to the server
         Socket clientSocket = new Socket(hostName, portNumber);
-        System.out.println("🔌Connection established\n\n👋🏻Hello server!\"");
+        System.out.println("🔌Connection established\n\n👋🏻Hello, I'm listening!");
 
 
         // STEP3: Setup input and output streams
@@ -28,7 +28,7 @@ public class TCPclient {
 
 
 // STEP4: Read from/write to the stream
-        while(clientSocket.isClosed() != true){
+        while (clientSocket.isBound() == true) {
             out.println(setMessage());
             String msgReceived = in.readLine();
             System.out.println("📥Server said:" + msgReceived);

@@ -25,7 +25,7 @@ public class TCPserver {
         ServerSocket serverSocket = new ServerSocket(portNumber);
         System.out.println("😴Waiting for client... ");
         Socket clientSocket = serverSocket.accept();
-        System.out.println("🔌Connection established\n \n👂🏻Hello!, I'm listening.");
+        System.out.println("🔌Connection established\n \n👂🏻Hello!, Waiting the first message from the client.");
 
 
 // STEP3: Setup input and output streams
@@ -35,11 +35,12 @@ public class TCPserver {
 // STEP4: Read from/write to the stream
 
 
-while(serverSocket.isClosed() != true){
+        while (serverSocket.isBound() == true) {
             String msgReceived = in.readLine();
             System.out.println("📥Client said:" + msgReceived);
             String msgTobeSend = setMessage();
-            out.println(msgTobeSend);}
+            out.println(msgTobeSend);
+        }
 // STEP5: Close the streams
         in.close();
         out.close();
