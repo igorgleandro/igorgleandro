@@ -11,7 +11,6 @@ public class Client implements Runnable {
 
     public Client(Socket clientSocket) {
         this.clientSocket = clientSocket;
-        run();
 
     }
 
@@ -34,8 +33,6 @@ public class Client implements Runnable {
                 path = "/index.html";
             } else if (path.equals("/potato")) {
                 path = "/potato.jpeg";
-           // } else if (path.equals(null)) {
-             //   path = "/potato.jpeg";
             } else {
                 path = "/404.html";
             }
@@ -59,14 +56,14 @@ public class Client implements Runnable {
                 responseHeader = "HTTP/1.0 404 Not Found\r\n" +
                         "Content-Type: text/html; charset=UTF-8\r\n" +
                         "Content-Length:" + file.length() + "\r\n\r\n";
-                buffer = path.getBytes();
+                buffer = Files.readAllBytes(Paths.get(file.getPath()));
             }
 
             outputStream.write(responseHeader.getBytes());
             outputStream.write(buffer);
 
-            //in.close();
-            //outputStream.close();
+            in.close();
+            outputStream.close();
             //clientSocket.close();
 
         } catch (IOException e) {

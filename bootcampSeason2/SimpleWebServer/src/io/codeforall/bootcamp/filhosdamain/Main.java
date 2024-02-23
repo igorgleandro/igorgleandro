@@ -24,7 +24,6 @@ public class Main {
             while (true) {
                 Socket clientSocket = serverSocket.accept();
                 Thread newClient = new Thread( new Client(clientSocket));
-                newClient.setName("newClient");
                 newClient.start();
 
             }
