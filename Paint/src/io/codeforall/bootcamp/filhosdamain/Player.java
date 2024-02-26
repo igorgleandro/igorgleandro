@@ -57,7 +57,7 @@ public class Player {
         }
     }
 
-    public void paint() {
+   public void paint() {
         for (int row = 0; row < 10; row++) {
             for (int col = 0; col < 10; col++) {
                 if (arrayGrid[col][row].getX() == playerImage.getX() && arrayGrid[col][row].getY() == playerImage.getY()) {
@@ -66,7 +66,6 @@ public class Player {
                         paint.setColor(Color.BLACK);
                         paint.fill();
                         arrayGrid[col][row].fill();
-                        System.out.println("");
 
                     } else {
                         paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);

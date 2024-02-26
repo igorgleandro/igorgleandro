@@ -48,6 +48,7 @@ public class Grid {
         }
         player.setArrayGrid(arrayFields);
     }
+
 }
 
 
