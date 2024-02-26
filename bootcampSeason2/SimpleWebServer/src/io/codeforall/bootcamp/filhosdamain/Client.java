@@ -17,8 +17,8 @@ public class Client implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println(Thread.currentThread().getName());
-            System.out.println("🔌 Connection established\n");
+            //System.out.println(Thread.currentThread().getName());
+            //System.out.println("🔌 Connection established\n");
 
             OutputStream outputStream = clientSocket.getOutputStream();
             BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
