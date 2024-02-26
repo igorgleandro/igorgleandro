@@ -34,7 +34,6 @@ public class Grid {
         Rectangle[][] arrayFields = new Rectangle[10][10];
 
         for (int row = 0; row < 10; row++) {
-
             for (int col = 0; col < 10; col++) {
                 gridFields = new Rectangle(tempCol + 10,tempRow + 10, 100, 100);
                 arrayFields[col][row] = gridFields;
@@ -48,6 +47,25 @@ public class Grid {
         }
         player.setArrayGrid(arrayFields);
     }
+    public void paint() {
+        for (int row = 0; row < 10; row++) {
+            for (int col = 0; col < 10; col++) {
+                if (gridFields.getX() == player. && gridFields.getY() == player.getY()) {
+                    if (!gridFields[col][row].isFilled()) {
+                        gridFields.fill();
+                        gridFields[col][row].fill();
+
+
+                    } else {
+                        gridFields.setColor(Color.WHITE);
+                        gridFields.fill();
+
+                        gridFields.setColor(Color.BLACK);
+                        gridFields.draw();
+                   }
+               }
+           }
+       }}
 
 }
 

@@ -57,29 +57,28 @@ public class Player {
         }
     }
 
-   public void paint() {
-        for (int row = 0; row < 10; row++) {
-            for (int col = 0; col < 10; col++) {
-                if (arrayGrid[col][row].getX() == playerImage.getX() && arrayGrid[col][row].getY() == playerImage.getY()) {
-                    if (!arrayGrid[col][row].isFilled()) {
-                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
-                        paint.setColor(Color.BLACK);
-                        paint.fill();
-                        arrayGrid[col][row].fill();
-
-                    } else {
-                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
-                        paint.setColor(Color.WHITE);
-                        paint.fill();
-
-                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
-                        paint.setColor(Color.BLACK);
-                        paint.draw();
-                    }
-                }
-            }
-        }
-    }
+//   public void paint() {
+//        for (int row = 0; row < 10; row++) {
+//            for (int col = 0; col < 10; col++) {
+//                if (arrayGrid[col][row].getX() == playerImage.getX() && arrayGrid[col][row].getY() == playerImage.getY()) {
+//                    if (!arrayGrid[col][row].isFilled()) {
+//                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
+//                        paint.fill();
+//                        arrayGrid[col][row].fill();
+//
+//                    } else {
+//                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
+//                        paint.setColor(Color.WHITE);
+//                        paint.fill();
+//
+//                        paint = new Rectangle(playerImage.getX(), playerImage.getY(), 100, 100);
+//                        paint.setColor(Color.BLACK);
+//                        paint.draw();
+//                    }
+//                }
+//            }
+//        }
+//    }
 }
 
 
