@@ -6,8 +6,9 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 public class Main {
 
     public static void main(String[] args) {
-        Player player = new Player(10,10);
-        Grid grid = new Grid(10,10, player);
+        Player player = new Player(20,20);
+
+        Grid grid =  new Grid(player);
 
         Controls controls = new Controls(player);
 

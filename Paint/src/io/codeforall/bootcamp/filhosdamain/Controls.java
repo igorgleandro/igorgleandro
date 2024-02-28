@@ -61,7 +61,7 @@ public class Controls implements  KeyboardHandler {
                     player.moveDown();
                     break;
                 case KeyboardEvent.KEY_SPACE:
-                    player.paint();
+                   // player.paint();
                     break;
             }
 
