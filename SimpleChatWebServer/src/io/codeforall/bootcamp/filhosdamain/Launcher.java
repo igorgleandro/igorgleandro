@@ -44,8 +44,10 @@ public class Launcher {
         return reader.nextLine();
     }
 
-
+//Broadcast method to send sms to all
     void sendTextAll(String string) {
+
+
         for (int i = 0; i < clientSocketKey.size(); i++) {
             try {
                 PrintWriter outAll = new PrintWriter(clientSocketKey.get(i).getOutputStream(), true);
