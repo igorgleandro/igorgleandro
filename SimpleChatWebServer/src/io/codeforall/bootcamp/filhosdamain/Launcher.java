@@ -13,20 +13,23 @@ public class Launcher {
     private static LinkedList<Socket> clientSocketKey;
     private static ServerSocket serverSocket;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
-        clientSocketKey = new LinkedList<>();
+        try {
+            clientSocketKey = new LinkedList<>();
 
-        InetAddress hostName = InetAddress.getByName(getHost());
-        int portNumber = Integer.parseInt(getPort());
-        System.out.println("\n🌈Hostname: " + hostName + " and Portnumber: " + portNumber + " has been defined.");
+            InetAddress hostName = InetAddress.getByName(getHost());
+            int portNumber = Integer.parseInt(getPort());
+            System.out.println("\n🌈Hostname: " + hostName + " and Portnumber: " + portNumber + " has been defined.");
 
 
-        serverSocket = new ServerSocket(portNumber);
-        System.out.println("😴Waiting for client... ");
+            serverSocket = new ServerSocket(portNumber);
+            System.out.println("😴Waiting for client... ");
 
-        Launcher launcher = new Launcher();
-        launcher.connexionListening();
+            Launcher launcher = new Launcher();
+            launcher.connexionListening();
+        } catch (Exception e) {
+        }
     }
 
 
@@ -44,7 +47,7 @@ public class Launcher {
         return reader.nextLine();
     }
 
-//Broadcast method to send sms to all
+    //Broadcast method to send sms to all
     void sendTextAll(String string) {
 
 
