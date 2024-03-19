@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.stream.Stream;
 
 public class FileAnalyzerApp {
     public static void main(String[] args) throws IOException {
@@ -64,7 +65,7 @@ public class FileAnalyzerApp {
         return line;
     }
 
-    public static String[] longestNwords(String filePath, int counter) throws IOException {
+    /*public static String[] longestNwords(String filePath, int counter) throws IOException {
         BufferedReader reader = new BufferedReader(new FileReader(filePath));
 
         String line;
@@ -89,12 +90,29 @@ public class FileAnalyzerApp {
                     }
 
                 }
+            } */
+
+        public static String[] longestNwords (String filePath ) throws IOException {
+            BufferedReader reader = new BufferedReader(new FileReader(filePath));
+
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] words = line.split("\\s+");
+                for (int i = 0; i < words.length; i++) {
+                    String
             }
+
+            Stream<BufferedReader> bufferedReaderStream = Stream.of(reader);
+
+
+                    //String[] messageNoGarbage = message.split(" ");
+
 
         }
 
-        return bigWords;
-    }
+
+
+           }
 
 
 }
