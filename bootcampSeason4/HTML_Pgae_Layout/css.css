@@ -1,0 +1,77 @@
+#navbar li{
+    display: inline-block;
+
+}
+
+#navbar ul{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+
+#navbar {
+    height: 40px;
+    background-color: rgb(63, 0, 0);
+    color: rgb(246, 246, 246);   
+    position: sticky;
+    top: 0px;
+    left: 20px;
+}
+
+#header {
+    height: 200px;
+    background-color: blue;
+    color: rgb(246, 246, 246);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#box-nav-content{
+    display: flex;
+
+}
+
+#main-content {
+    height: 2000px;
+    display: inline-block;
+    display: flex;
+
+
+}
+
+#sidebar li{
+    background-color: rgb(43, 42, 42);
+    color: rgb(246, 246, 246);
+    display: flex;
+   
+}
+
+#sidebar ul{
+}
+
+#sidebar {
+    width: 150px;
+    height: 200px;
+    background-color: rgb(43, 42, 42);
+    color: rgb(246, 246, 246);
+    display: flex;
+    position: sticky;
+    top: 40px;
+    left: 20px;
+}
+
+footer {
+    height: 100px;
+    background-color: black;
+    color: rgb(246, 246, 246);
+    align-items: center;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.rubik-scribble-regular {
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 400;
+  font-style: normal;
+}

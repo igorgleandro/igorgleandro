@@ -1,0 +1,78 @@
+*{
+    padding: 0px;
+    margin: 0px;
+
+}
+
+h1{
+    padding: 30px;
+}
+
+#tranparentBox{
+    background-color: rgb(210, 205, 198);
+    width: 100%;
+}
+
+.box{
+    width: 400px;
+    height: 250px;
+    background-color: bisque;
+    margin: 10px;
+    padding: 40px;
+    display: inline-block;
+}
+.box2{
+    margin: 10px;
+    margin-top: 200px;
+    padding: 40px;
+    display: inline-block;
+    vertical-align: -80px;
+}
+
+#padding{
+
+    width: 350px;
+    height: 200px;
+    background-color: rgb(69, 138, 26);
+    
+}
+
+.white-box {
+    background-color: white;
+    color: black;
+    text-align: center; 
+    margin-top: 80px;
+    margin-left: 120px;
+}
+
+.br-10{
+    border: 5px solid #333333;
+    background-color: white;
+    color: black;
+    text-align: center; 
+    width: fit-content;
+    display: inline-block;
+    
+}
+
+.br-20{
+    background-color: bisque;
+    color: black;
+    text-align: center; 
+    width: fit-content;
+    display: inline-block;
+}
+
+.br-30{
+    background-color: rgb(69, 138, 26);
+    color: black;
+    text-align: center; 
+    width: fit-content;
+    display: inline-block;
+}
+
+.slim {
+    width: 100px;
+    height: 30px;
+        overflow:scroll;
+    }

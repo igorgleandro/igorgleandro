@@ -17,5 +17,74 @@
             <property name="hibernate.hbm2ddl.auto" value="update"/>
         </properties>
 
+
+
     </persistence-unit>
+
+
+
+<persistence-unit name="mapped_superclass_inheritance" transaction-type="RESOURCE_LOCAL">
+    <!-- provider element declares the class that provides the initial factory
+        for creating an EntityManager instance -->
+    <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+    <properties>
+        <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+        <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ac?useSSL=false"/>
+        <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+        <property name="hibernate.connection.username" value="root"/>
+        <property name="hibernate.connection.password" value=""/>
+        <property name="hibernate.archive.autodetection" value="class"/>
+        <property name="hibernate.show_sql" value="true"/>
+        <property name="hibernate.format_sql" value="true"/>
+        <property name="hibernate.hbm2ddl.auto" value="update"/>
+    </properties>
+
+</persistence-unit>
+
+    <persistence-unit name="single_table_inheritance" transaction-type="RESOURCE_LOCAL">
+        <!-- provider element declares the class that provides the initial factory
+            for creating an EntityManager instance -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>single_table_inheritance.Vehicle</class>
+        <class>single_table_inheritance.Boat</class>
+        <class>single_table_inheritance.Car</class>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ac?useSSL=false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value=""/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+    <persistence-unit name="table_per_class_inheritance" transaction-type="RESOURCE_LOCAL">
+        <!-- provider element declares the class that provides the initial factory
+            for creating an EntityManager instance -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>table_per_class_inheritance.Boat</class>
+        <class>table_per_class_inheritance.Car</class>
+        <class>table_per_class_inheritance.Vehicle</class>
+
+        <properties>
+            <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/ac?useSSL=false"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.archive.autodetection" value=""/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
 </persistence>
