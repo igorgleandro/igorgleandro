@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javabank Page</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #d8d3d3;
+        }
+
+        h1 {
+            text-align: center;
+            /* Aligning the <h1> element to the center */
+        }
+
+        .edit-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .view-button {
+            background-color: rgb(236, 248, 64);
+            color: rgb(0, 0, 0);
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js">
+    </script>
+
+</head>
+
+<body>
+
+    <h1>Javabank</h1>
+    <h4>List of Customer</h4>
+
+    <table id="ListOfCustomer">
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Edit</th>
+            <th>Delete</th>
+            <th>View</th>
+
+
+
+    </table>
+
+</body>
+
+</html>
+
+
+<script>
+
+
+$(document).ready(function() {
+    // ...
+
+    var ajax;
+    if (window.XMLHttpRequest) {
+        ajax = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        ajax = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+
+            var customerData = JSON.parse(ajax.responseText);
+
+           
+            
+            var element = '<tr>'+ 'customerData' + '</tr>';
+            $(element).appendTo('.ListOfCustomer');
+
+
+
+
+
+
+            var usersTable = $('#ListOfCustomer');
+           //var usersTable = document.getElementById('ListOfCustomer');
+
+            customerData.forEach(function (customer) {
+                var row = usersTable.insertRow(-1);
+                //var row  = '<tr>' + '<td>table entry</td>' + '</tr>';
+                ["firstName", "lastName", "email", "phone"].forEach(function (key) {
+                    var cell = row.insertCell();
+                    cell.textContent = customer[key];
+                });
+
+
+                var viewCell = row.insertCell();
+                var viewButton = document.createElement("button");
+                viewButton.textContent = "View";
+                viewButton.classList.add("view-button");
+                viewCell.appendChild(viewButton);
+                viewButton.addEventListener('click', function () {
+                    window.location.href = customer.id
+                });
+
+
+                var editCell = row.insertCell();
+                var editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.classList.add("edit-button");
+                editCell.appendChild(editButton);
+
+                var deleteCell = row.insertCell();
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("delete-button");
+                deleteCell.appendChild(deleteButton);
+
+
+            });
+
+        }
+    };
+
+    ajax.open('GET', 'http://localhost:8080/javabank5/api/customer/', true);
+    ajax.setRequestHeader('Content-type', 'application/json');
+    ajax.send();
+
+});
+</script>
