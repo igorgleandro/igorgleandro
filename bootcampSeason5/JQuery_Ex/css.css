@@ -49,4 +49,37 @@
             text-decoration: none;
 
         }
+       
+        .add-button {
+            background-color: rgb(0, 165, 33);
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+
+        }
+       
+        .update-button {
+            background-color: rgb(250, 129, 0);
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+
+        }
+       
+        .reset-button {
+            background-color: rgb(108, 114, 0);
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+
+        }
    

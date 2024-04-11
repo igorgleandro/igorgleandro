@@ -1,12 +1,15 @@
 
 $(document).ready(function () {
+
     dataConnect();
-    
 
 });
 
+//AJAX
 
-function dataConnect(){
+function dataConnect() {
+
+
     $.ajax({
         url: 'http://localhost:8080/javabank5/api/customer/',
         async: true,
@@ -16,45 +19,63 @@ function dataConnect(){
 
 }
 
-function viewConnect(){
+function deleteConnect(id) {
     $.ajax({
-        url: 'http://localhost:8080/javabank5/api/customer/'+ customerData.getId,
+        url: 'http://localhost:8080/javabank5/api/customer/' + id,
         async: true,
-        success: successCallbackView,
+        success: dataConnect,
         error: errorCallback,
+        type: 'DELETE'
     });
-
 }
 
-function editConnect(){
+function addConnect(firstName1, lastName1, email1, phone1) {
     $.ajax({
-        url: 'http://localhost:8080/javabank5/api/customer/'+ customerData.getId,
+        url: 'http://localhost:8080/javabank5/api/customer/',
+        type: 'POST',
+        data: JSON.stringify({
+            firstName: firstName1,
+            lastName: lastName1,
+            email: email1,
+            phone: phone1,
+        }),
         async: true,
-        success: successCallbackEdit,
-        error: errorCallback,
-        type: PUT,
         contentType: 'application/json',
-
+        success: successCallback,
+        error: errorCallback
     });
-
 }
 
-function deleteConnect(){
+function updateConnect(id2,firstName1, lastName1, email1, phone1) {
     $.ajax({
-        url: 'http://localhost:8080/javabank5/api/customer/'+ customerData.getId,
-        async: true,
-        success: successCallbackDelete,
-        error: errorCallback,
-        type: DELETE,
-    });
+        url: 'http://localhost:8080/javabank5/api/customer/'+ id2,
+        type: 'PUT',
+        
+        data: JSON.stringify({
+            firstName: firstName1,
+            lastName: lastName1,
+            email: email1,
+            phone: phone1,
+        }),
 
+        async: true,
+        contentType: 'application/json',
+        success: dataConnect,
+        error: errorCallback
+    });
 }
+
+
+
+// Tables
 
 function successCallback(response) {
 
 
     var customerData = response;
     var usersTable = $('#ListOfCustomer');
+
+    usersTable.empty();
 
     customerData.forEach(function (customer) {
         var row = $('<tr></tr>');
@@ -65,29 +86,89 @@ function successCallback(response) {
             row.append(cell);
         });
 
-
-        var viewCell = $('<td></td>');
-        var viewButton = $('<button class="view-button">View</button>');
-        viewButton.on('click', function () {
-            window.location.href = customer.id;
-        });
-        viewCell.append(viewButton);
-        row.append(viewCell);
-
         var editCell = $('<td></td>');
-        var editButton = $('<button class="edit-button">Edit</button>');
+        var customerId = customer.id
+        var editButton = $("<button data-id=" + customerId + " class=edit-button>Edit</button>");
         editCell.append(editButton);
         row.append(editCell);
 
         var deleteCell = $('<td></td>');
-        var deleteButton = $('<button class="delete-button">Delete</button>');
+        var deleteButton = $("<button data-id='" + customerId + "' class='delete-button'>Delete</button>");
         deleteCell.append(deleteButton);
         row.append(deleteCell);
 
         usersTable.append(row);
+        editCustomer(customer);
     });
+
+    deleteCustomer();
+    
+
+
 };
 
 function errorCallback(request, status, error) {
-console.error("Error fetching customer data:", error);
+    console.error("Error fetching customer data:", error);
 }
+
+
+
+// Buttons
+
+
+function deleteCustomer() {
+    $('.delete-button').click(function () {
+       
+        var customerId = $(this).data('id');
+        deleteConnect(customerId)
+        
+        usersTable.empty();
+        dataConnect();
+
+    });
+}
+
+function editCustomer(customer) {
+    $('.edit-button').click(function () {
+
+        console.log(customer);
+
+        $('#id').val(customer.id);
+        var firstName = $('#firstName').val(customer.firstName);
+        var lastName = $('#lastName').val(customer.lastName);
+        var email = $('#email').val(customer.email);
+        var phone = $('#phone').val(customer.phone);
+        console.log(id);
+
+        console.log(editConnect);
+       //console.log(editConnect(id,firstName, lastName, email, phone));
+    });
+}
+
+$('.add-button').click(function () {
+    var firstName = $('#firstName').val();
+    var lastName = $('#lastName').val();
+    var email = $('#email').val();
+    var phone = $('#phone').val();
+
+    addConnect(firstName, lastName, email, phone);
+
+});
+
+function updateCustomer(customer) {
+    $('.update-button').click(function () {
+
+        var id = $('#id').val(customer.id)
+        var firstName = $('#firstName').val(customer.firstName);
+        var lastName = $('#lastName').val(customer.lastName);
+        var email = $('#email').val(customer.email);
+        var phone = $('#phone').val(customer.phone);
+
+        console.log(id + firstName + lastName + email + phone);
+        updateConnect(id,firstName, lastName, email, phone);
+    });
+}
+
+$('.reset-button').click(function () {
+    console.log("Reset")
+});

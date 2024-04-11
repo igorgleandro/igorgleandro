@@ -12,7 +12,38 @@
 <body>
 
     <h1 id="Title">Javabank</h1>
-    <h4>List of Customer</h4>
+
+
+    <table id="addEditTable">
+        <form>
+            <th>ID</th>
+            <th> <label for="firstName">First name:</label> </th>
+            <th> <label for="lastName">Last name:</label></th>
+            <th> <label for="Email">Email:</label></th>
+            <th> <label for="Phone">Phone:</label></th>
+
+            <tr>
+                <td> <input type="text" id="id" name="id"><br><br></td>
+                <td> <input type="text" id="firstName" name="firstName"><br><br></td>
+                <td> <input type="text" id="lastName" name="lastName"><br><br></td>
+                <td> <input type="text" id="email" name="Email"><br><br></td>
+                <td> <input type="text" id="phone" name="Phone"><br><br></td>
+            </tr>
+            
+            <tr>
+                <td colspan="5"> 
+                
+                <button class="add-button">Add</button>
+                <button class="update-button">Update</button>
+                <button class="reset-button">Reset</button>
+            </td>
+            </tr>
+
+        </form>
+    </table>
+
+    <h3>List of Customer</h3>
+
 
     <table id="ListOfCustomer">
         <tr>
@@ -22,15 +53,13 @@
             <th>Phone</th>
             <th>Edit</th>
             <th>Delete</th>
-            <th>View</th>
+        </tr>
 
     </table>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"> </script>
     <script src="index.js"></script>
-    
+
 </body>
 
 </html>
-
-
