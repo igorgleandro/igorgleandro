@@ -4,11 +4,6 @@ a {
     outline: 0;
 }
 
-#anchors {
-    display: flex;
-    justify-content: space-evenly;
-    
-}
 
 body {
   font-family: Arial, Helvetica, sans-serif;
@@ -66,6 +61,8 @@ body {
     top: 0;
     width: 100%;
     z-index: 1000; /* Ensure navbar appears above other content */
+    display: flex;
+    justify-content: space-evenly;
 }
 
 p{
@@ -74,4 +71,59 @@ p{
   outline: 0;
   font-size: 15px;
   line-height: 1.0;
+}
+
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* Change the background color as needed */
+  padding: 20px 0; /* Adjust the padding as needed */
+}
+
+/* Additional styles for footer content */
+.footer .container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer h5 {
+  color: #333; /* Change the text color as needed */
+}
+
+.footer ul li {
+  list-style: none;
+}
+
+.footer a {
+  color: #007bff; /* Change link color as needed */
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+#about-us-footer {
+  max-height: 90px; /* Adjust the max height as needed */
+  overflow-y: hidden; /* Enable vertical scrolling */
+  transition: max-height 0.6s ease;
+  cursor: pointer; 
+}
+
+#about-us-footer.expanded {
+  max-height: none; /* Expand to full height */
+}
+
+.arrow {
+  font-size: 20px;
+  display: inline-block;
+  margin-left: 5px;
+  transition: transform 0.3s ease; /* Smooth transition */
+  transform: rotate(180deg);
+}
+
+#about-us-footer.expanded .arrow {
+  transform: rotate(0deg); /* Rotate arrow when footer is expanded */
 }

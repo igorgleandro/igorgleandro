@@ -3,4 +3,5 @@ function render() {
   container.innerHTML = ''; //removes the previous elements
 };
 
+
 export default { render };
