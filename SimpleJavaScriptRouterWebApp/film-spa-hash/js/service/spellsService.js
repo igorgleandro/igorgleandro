@@ -4,7 +4,6 @@ async function fetchSpells() {
 
   const api = 'https://hp-api.onrender.com/api/spells';
   const response = await fetch(api);
-  
   const data = await response.json();
   const hpSpells = data;
   
