@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javabank Page</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #000000;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #d8d3d3;
+        }
+        h1 {
+            text-align: center; /* Aligning the <h1> element to the center */
+        }
+        .edit-button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .delete-button {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Javabank</h1>
+<h4>List of Customer</h4>
+
+<table id="ListOfCustomer">
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</table>
+
+<script>
+    var usersTable = document.getElementById('ListOfCustomer');
+
+    var ajax;
+    if (window.XMLHttpRequest) {
+        ajax = new XMLHttpRequest();
+    } else if (window.ActiveXObject) {
+        ajax = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    ajax.onreadystatechange = function() {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            var customerData = JSON.parse(ajax.responseText);
+            
+            
+            customerData.forEach(function(customer) {
+                var row = usersTable.insertRow(-1);
+                var cellFirstName = row.insertCell(0);
+                var cellLastName = row.insertCell(1);
+                var cellEmail = row.insertCell(2);
+                var cellPhone = row.insertCell(3);
+                var cellEdit = row.insertCell(4);
+                var cellDelete = row.insertCell(5);
+
+                cellFirstName.textContent = customer.firstName;
+                cellLastName.textContent = customer.lastName;
+                cellEmail.textContent = customer.email;
+                cellPhone.textContent = customer.phone;
+
+                var editButton = document.createElement("button");
+                editButton.textContent = "Edit";
+                editButton.classList.add("edit-button");
+                cellEdit.appendChild(editButton);
+
+                var deleteButton = document.createElement("button");
+                deleteButton.textContent = "Delete";
+                deleteButton.classList.add("delete-button");
+                cellDelete.appendChild(deleteButton);
+            });
+        }
+    };
+    ajax.open('GET', 'http://localhost:8080/javabank5/customer/list', true);
+    ajax.setRequestHeader('Content-type', 'application/json');
+    ajax.send();
+</script>
+
+</body>
+</html>

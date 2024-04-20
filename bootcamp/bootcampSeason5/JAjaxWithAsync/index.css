@@ -1,0 +1,45 @@
+#rocketContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  background-color: black;
+  padding: 20px;
+}
+
+.card {
+  flex: 0 1 calc(50% - 20px); /* Set flex to occupy 50% of the container with spacing */
+  max-width: calc(50% - 20px); /* Limit maximum width to 50% of the container with spacing */
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: white;
+}
+
+.card img {
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    flex: 1 1 calc(100% - 20px); /* Set flex to occupy 100% of the container on smaller screens */
+    max-width: calc(100% - 20px); /* Limit maximum width to 100% of the container on smaller screens */
+  }
+}
+
