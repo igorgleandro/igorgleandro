@@ -1,0 +1,503 @@
+* {
+  font-family: 'Kanit';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#background {
+  background-image: url('/img/background4.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+
+#buttonBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+
+#button {
+  background-color: #ffffff;
+  border: none;
+  width: 90%;
+  color: rgb(34, 34, 34);
+  padding: 4vw 8vw; /* Padding proporcional à tela */
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 900;
+  display: block;
+  font-size: 4vw; /* Tamanho do texto do botão em proporção à tela */
+  border-radius: 4vw; /* Borda arredondada proporcional */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1);
+  position: absolute;
+  bottom: 5vw; /* Distância do botão ao rodapé */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+#button:hover {
+  background-color: #f2afff; /* Cor de fundo ao passar o mouse */
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+
+.question-container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2vw; /* Padding responsivo */
+  border-radius: 2vw; /* Borda arredondada proporcional */
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 50vh; /* Altura proporcional à tela */
+  width: 100vw; /* Largura proporcional à tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional */
+}
+
+
+.answer {
+  color: rgb(7, 7, 7);
+  padding: 1vw; /* Padding responsivo */
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 2vw; /* Borda arredondada proporcional */
+  width: 90vw; /* Largura proporcional à tela */
+  margin: 7vw auto; /* Margem automática e responsiva */
+  font-size: 1.5rem;
+  box-shadow: 0px 0px 3.7vw 0px rgb(129, 129, 129); /* Ajuste o tamanho da sombra em relação à largura da tela */
+}
+
+
+.answer:hover {
+  background-color: #f7afff; /* Cor de fundo ao passar o mouse */
+}
+
+#menu {
+  background-color: #f9d8ff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 8%;
+  color: #ffffff;
+  padding: 2vw; /* Ajuste o padding em relação à largura da tela */
+  text-align: center;
+  z-index: 2; /* Z-index aumentado para garantir que o menu esteja abaixo de .image-container */
+  box-shadow: 0px 0px 3.7vw 0px rgb(195, 13, 219); /* Ajuste o tamanho da sombra em relação à largura da tela */
+}
+
+.image-container {
+  background: linear-gradient(
+    to right,
+    rgba(145, 6, 195, 0.9),
+    rgba(255, 52, 195, 0.9)
+  );
+  position: fixed;
+  bottom: 1vw; /* Distância ao rodapé em relação à largura da tela */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2vw; /* Borda arredondada proporcional */
+  padding: 2vw; /* Ajuste o padding em relação à largura da tela */
+  max-width: 90vw; /* Define a largura máxima como uma porcentagem da largura da tela */
+  max-height: 10vh; /* Define a altura máxima como uma porcentagem da altura da tela */
+  text-align: center;
+  box-shadow: 0px 0px 3.7vw 0px rgba(85, 13, 219, 1); /* Ajuste o tamanho da sombra em relação à largura da tela */
+  transition: bottom 0.5s ease; /* Adiciona uma transição suave na propriedade bottom */
+  z-index: 3; /* Z-index aumentado para garantir que .image-container esteja sobre o menu */
+}
+
+
+.image-container:hover {
+  bottom: 2vw; /* Diminui a distância ao rodapé ao passar o mouse */
+}
+
+
+
+.image-container:hover {
+  bottom: 2vw; /* Diminui a distância ao rodapé ao passar o mouse */
+}
+
+
+.backward {
+  margin-left: 6vw; /* Margem à esquerda em relação à largura da tela */
+  margin-top: 6vw; /* Margem superior em relação à largura da tela */
+}
+
+
+/* FINAL VIEW */
+
+.flip-card {
+  background-color: transparent;
+  width: 90%; /* Largura em relação à largura da tela */
+  height: 55vh; /* Altura em relação à altura da tela */
+  perspective: 70vw; /* Perspectiva em relação à largura da tela */
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional à largura da tela */
+  position: relative;
+  bottom: 7vh;
+}
+
+
+.flip-card-inner {
+  position: relative;
+  width: 100%; /* Largura em relação à largura do elemento pai */
+  height: 100%; /* Altura em relação à altura do elemento pai */
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional à largura da tela */
+}
+
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Adiciona sombra proporcional */
+}
+
+
+.flip-card-front {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 0, 0);
+  border-radius: 2vw; /* Adapta o border-radius */
+  padding: 2vw; /* Adapta o preenchimento */
+  height: 140vw;
+}
+
+
+.flip-card-back {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  border-radius: 2vw; /* Adapta o border-radius */
+  padding: 2vw; /* Adapta o preenchimento */
+  height: 140vw;
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Reduz a altura para 80vh */
+}
+
+
+.headerNew {
+  background: linear-gradient(
+    to right,
+    rgba(145, 6, 195, 0.7),
+    rgba(255, 52, 195, 0.7)
+  );
+  padding: 2vw;
+  border-radius: 7vw;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 40%;
+  width: 80%;
+  box-shadow: 0px 1vh 1.5vh rgba(145, 6, 195, 0.3),
+    0px 1.5vh 2.5vh rgba(255, 52, 195, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
+}
+
+
+.big-letter {
+  font-size: 12vw; /* Tamanho da letra em relação à largura da tela */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
+  font-weight: 900;
+  color: white;
+  text-align: left;
+  position: fixed;
+  top: 70%; /* Distância do topo em relação à altura da tela */
+  left: 38%; /* Distância da esquerda em relação à largura da tela */
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  z-index: 3; /* Coloca acima de outros elementos */
+}
+
+
+#headerNew {
+  background: linear-gradient(
+    to right,
+    rgba(145, 6, 195, 0.7),
+    rgba(255, 52, 195, 0.7)
+  );
+  padding: 2vw; /* Espaçamento interno proporcional à largura da tela */
+  border-radius: 7vw; /* Borda arredondada proporcional à largura da tela */
+  position: fixed;
+  top: 24%; /* Distância do topo em relação à altura da tela */
+  left: 50%; /* Distância da esquerda em relação à largura da tela */
+  transform: translate(-50%, -50%);
+  height: 30vh; /* Altura proporcional à altura da tela */
+  width: 80%; /* Largura proporcional à largura da tela */
+  box-shadow: 0px 1vh 1.5vh rgba(145, 6, 195, 0.3),
+    0px 1.5vh 2.5vh rgba(255, 52, 195, 0.3);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 3; /* Coloca acima de outros elementos */
+}
+
+
+.question-header {
+  width: 100%; /* Use toda a largura disponível */
+  padding: 1vw 2vw; /* Espaçamento interno proporcional à largura da tela */
+  text-align: center; /* Centraliza o texto */
+  color: rgb(255, 255, 255); /* Cor do texto */
+  font-weight: bold; /* Peso da fonte */
+  font-size: 4vw; /* Tamanho da fonte proporcional à largura da tela */
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+}
+
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Altura igual à altura da tela */
+}
+
+
+.social-media-buttons {
+  position: fixed;
+  bottom: 5vw; /* Distância do rodapé */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10vw; /* Espaçamento à direita */
+  z-index: 3;
+}
+
+.centered-buttons .a2a_kit {
+  margin-right: 10vw; /* Espaçamento à direita */
+}
+
+
+#cardAdress {
+  margin-top: 1vw; /* Margem superior responsiva */
+  font-size: 3vw; /* Tamanho da fonte responsivo */
+}
+
+
+#cardName {
+  margin-top: 1vw; /* Margem superior responsiva */
+  font-size: 8vw; /* Tamanho da fonte responsivo */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+.image-container2,
+.image-container3 {
+  background: linear-gradient(
+    to right,
+    rgba(145, 6, 195, 0.9),
+    rgba(255, 52, 195, 0.9)
+  );
+  position: fixed;
+  bottom: 170vw; /* Distância ao rodapé responsiva */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 2vw; /* Borda arredondada responsiva */
+  padding: 1vw; /* Preenchimento responsivo */
+  width: 70vw; /* Largura responsiva */
+  height: 7vh; /* Altura responsiva */
+  text-align: center;
+  box-shadow: 0px 0px 3.7vw 0px rgba(85, 13, 219, 1); /* Sombra responsiva */
+  transition: top 0.5s ease;
+}
+
+
+#drinkImage {
+  width: 10vw; /* Largura responsiva */
+  height: 10vw; /* Altura responsiva */
+}
+
+
+#barImage,
+#drinkCardImage {
+  border-radius: 5%;
+  width: 90%;
+  height: 45vh; /* Altura responsiva em relação à altura da tela */
+  margin-bottom: 4%;
+  overflow: hidden;
+  position: relative;
+  top: 40%;
+}
+
+
+#drinkAdress {
+  margin-top: 1vw; /* Margem superior responsiva */
+  font-size: 3vw; /* Tamanho da fonte responsivo */
+}
+
+
+#drinkName {
+  margin-top: 1vw; /* Margem superior responsiva */
+  font-size: 8vw; /* Tamanho da fonte responsivo */
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+
+#drinkDescript {
+  position: absolute;
+  top: 100vh; /* Posição vertical em relação à altura da tela */
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+#girls {
+  font-size: 8vw;
+  font-weight: 700;
+  margin-top: 1vw;
+  margin-bottom: 0;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    to right,
+    rgba(145, 6, 195, 0.9),
+    rgba(255, 52, 195, 0.9)
+  );
+}
+
+
+#shareButtons {
+  margin-left: 25vw;
+  margin-top: -6vw;
+}
+
+
+.flip-card-inner2 {
+  position: relative;
+  width: 100%; /* Largura em relação à largura do elemento pai */
+  height: 100%; /* Altura em relação à altura do elemento pai */
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional à largura da tela */
+}
+
+
+.flip-card2:hover .flip-card-inner2 {
+  transform: rotateY(180deg);
+}
+
+
+.flip-card-front2,
+.flip-card-back2 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Adiciona sombra proporcional */
+}
+
+
+.flip-card-front2 {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 0, 0);
+  border-radius: 2vw; /* Adapta o border-radius */
+  padding: 2vw; /* Adapta o preenchimento */
+  height: 140vw;
+}
+
+
+.flip-card-back2 {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  border-radius: 2vw; /* Adapta o border-radius */
+  padding: 2vw; /* Adapta o preenchimento */
+  height: 140vw;
+}
+
+.card-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh; /* Reduz a altura para 80vh */
+}
+
+.flip-card2 {
+  background-color: transparent;
+  width: 90%; /* Largura em relação à largura da tela */
+  height: 55vh; /* Altura em relação à altura da tela */
+  perspective: 70vw; /* Perspectiva em relação à largura da tela */
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional à largura da tela */
+  position: relative;
+  bottom: -8vh;
+}
+
+
+.flip-card-inner2 {
+  position: relative;
+  width: 100%; /* Largura em relação à largura do elemento pai */
+  height: 100%; /* Altura em relação à altura do elemento pai */
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  border-radius: 2vw; /* Borda arredondada proporcional à largura da tela */
+  box-shadow: 0px -1vw 1vw rgba(0, 0, 0, 0.1); /* Sombra proporcional à largura da tela */
+}
+
+
+.flip-card2:hover .flip-card-inner2 {
+  transform: rotateY(180deg);
+}
+
+
+.four {
+    font-size: 12vw; /* Tamanho da letra em relação à largura da tela */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+    font-weight: 900;
+    color: white;
+    text-align: left;
+    position: fixed;
+    top: 50%; /* Distância do topo em relação à altura da tela */
+    left: 38%; /* Distância da esquerda em relação à largura da tela */
+    transform: translate(-50%, -50%);
+    line-height: 1;
+    z-index: 3; /* Coloca acima de outros elementos */
+  }
+
+
