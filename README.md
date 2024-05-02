@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-- 🔭 I’m currently working on get my Bootcamp finished with success!
+- 🔭 < Junior FullStack Developer _> | Certified Salesforce Administrator and Google Certified Project Manager
 - 🌱 I’m currently learning Java.
 - 👯 I’m looking to collaborate on any opportunity that I can add.
 - 💬 Ask me about anything.
