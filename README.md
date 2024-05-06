@@ -2,8 +2,7 @@
 
 - 🔭 < Junior FullStack Developer _> 
 - 📜 Certified Salesforce Administrator and Google Certified Project Manager
-- 👨🏻‍💻 Currently learning Power Platform
-- 🌱 I’m currently learning Java.
+- 🌱 I’m currently learning Power Platform.
 - 👯 I’m looking to collaborate on any opportunity that I can add.
 - 💬 Ask me about anything.
 - 📫 How to reach me: igorgleandro@icloud.com
