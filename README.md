@@ -7,3 +7,4 @@
 - 💬 Ask me about anything.
 - 📫 How to reach me: igorgleandro@icloud.com
 - ⚡ Fun fact: I'm currert a Digital Nomad :D
+- 📄 See my CV at : https://drive.google.com/file/d/15AVKldekYDebtxYz6Z525Ag0xaSs-wpU/view?usp=sharing
