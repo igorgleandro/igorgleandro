@@ -1,0 +1,22 @@
+
+Sync started at: 2024-05-06 15:26:34
+Copied: .DS_Store
+Copied: HarryPotter.txt
+Sync completed at: 2024-05-06 15:26:34
+
+Sync started at: 2024-05-06 15:27:34
+Copied: .DS_Store
+Copied: HarryPotter copy.txt
+Copied: HarryPotter.txt
+Sync completed at: 2024-05-06 15:27:34
+
+Sync started at: 2024-05-06 15:28:34
+Copied: .DS_Store
+Copied: HarryPotter.txt
+Removed: HarryPotter copy.txt
+Sync completed at: 2024-05-06 15:28:34
+
+Sync started at: 2024-05-06 15:29:34
+Copied: .DS_Store
+Copied: HarryPotter.txt
+Sync completed at: 2024-05-06 15:29:34
